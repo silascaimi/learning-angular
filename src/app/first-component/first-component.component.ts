@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { EventEmitter } from "@angular/core";
+import { Component, Input, OnInit, Output } from "@angular/core";
 
 @Component({
   selector: 'first-component',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from "@angular/core";
 })
 export class FirstComponent implements OnInit {
   @Input() pageTitle: string = '';
+  @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit(): void {
     this._valorDinamico = 'Vallor inicial';
@@ -33,5 +35,9 @@ export class FirstComponent implements OnInit {
 
   toggleImg(): void {
     this.isImgVisible = !this.isImgVisible;
+  }
+
+  onClick(): void {
+    this.notify.emit('Clicked!');
   }
 }
