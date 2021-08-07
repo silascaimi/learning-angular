@@ -8,4 +8,5 @@
 <img [src]='imageUrl' [style.width.px]='imageWidth' [hidden]='isImgVisible'>
 <br />
 <input type='text' [(ngModel)]='valorDinamico' />
-<h2> {{valorDinamico}} </h2>
+<h2> {{valorDinamico | uppercase}} </h2>
+<span>{{price | currency: 'BRL': 'symbol': '1.2-2'}}</span>

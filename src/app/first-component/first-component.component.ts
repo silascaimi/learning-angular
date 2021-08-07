@@ -11,6 +11,7 @@ export class FirstComponent {
   imageWidth = 200;
   isImgVisible: boolean = false;
   valorDinamico = 'Valor inicial';
+  price = 55.99;
 
   toggleImg(): void {
     this.isImgVisible = !this.isImgVisible;
