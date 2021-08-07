@@ -9,4 +9,9 @@ export class FirstComponent {
   elements = ['Primeiro', 'Segundo', 'Terceiro'];
   imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png';
   imageWidth = 200;
+  isImgVisible: boolean = false;
+
+  toggleImg(): void {
+    this.isImgVisible = !this.isImgVisible;
+  }
 }
