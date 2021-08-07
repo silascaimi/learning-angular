@@ -19,6 +19,7 @@ export class FirstComponent implements OnInit {
   isImgVisible: boolean = false;
   valorDinamico = 'Valor inicial';
   price = 55.99;
+  codigo = '555-999-55-42';
 
   toggleImg(): void {
     this.isImgVisible = !this.isImgVisible;
