@@ -1,4 +1,6 @@
 <h1>{{ title }}</h1>
-<ul *ngIf="elements.length">
-  <li>{{ elements }}</li>
+<ul *ngIf='elements.length'>
+    <li *ngFor='let element of elements'>
+      {{element}}
+    </li>
 </ul>
