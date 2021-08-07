@@ -2,7 +2,9 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: 'first-component',
-  templateUrl: './first-component.component.html'
+  templateUrl: './first-component.component.html',
+  styleUrls: ['./first-component.component.css'],
+  styles: ['.centralizado {text-align: center;}']
 })
 export class FirstComponent {
   title = 'Primeiro componente';
