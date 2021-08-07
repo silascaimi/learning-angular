@@ -9,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
 export class FirstComponent implements OnInit {
 
   ngOnInit(): void {
-    throw new Error("Method not implemented.");
+    this._valorDinamico = 'Vallor inicial';
   }
 
   title = 'Primeiro componente';
@@ -17,9 +17,16 @@ export class FirstComponent implements OnInit {
   imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png';
   imageWidth = 200;
   isImgVisible: boolean = false;
-  valorDinamico = 'Valor inicial';
   price = 55.99;
   codigo = '555-999-55-42';
+
+  private _valorDinamico = '';
+  get valorDinamico(): string {
+    return this._valorDinamico;
+  }
+  set valorDinamico(valor: string) {
+    this._valorDinamico = valor;
+  }
 
   toggleImg(): void {
     this.isImgVisible = !this.isImgVisible;
