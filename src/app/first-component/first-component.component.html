@@ -6,3 +6,6 @@
 </ul>
 <img src={{imageUrl}} (click)='toggleImg()'>
 <img [src]='imageUrl' [style.width.px]='imageWidth' [hidden]='isImgVisible'>
+<br />
+<input type='text' [(ngModel)]='valorDinamico' />
+<h2> {{valorDinamico}} </h2>
