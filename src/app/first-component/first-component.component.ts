@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 @Component({
   selector: 'first-component',
@@ -6,7 +6,12 @@ import { Component } from "@angular/core";
   styleUrls: ['./first-component.component.css'],
   styles: ['.centralizado {text-align: center;}']
 })
-export class FirstComponent {
+export class FirstComponent implements OnInit {
+
+  ngOnInit(): void {
+    throw new Error("Method not implemented.");
+  }
+
   title = 'Primeiro componente';
   elements = ['Primeiro', 'Segundo', 'Terceiro'];
   imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png';
