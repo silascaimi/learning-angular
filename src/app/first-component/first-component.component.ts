@@ -1,11 +1,13 @@
 import { EventEmitter } from "@angular/core";
 import { Component, Input, OnInit, Output } from "@angular/core";
+import { ProductService } from "../services/product.service";
 
 @Component({
   selector: 'first-component',
   templateUrl: './first-component.component.html',
   styleUrls: ['./first-component.component.css'],
-  styles: ['.centralizado {text-align: center;}']
+  styles: ['.centralizado {text-align: center;}'],
+  providers: [ProductService]
 })
 export class FirstComponent implements OnInit {
   @Input() pageTitle: string = '';
@@ -13,7 +15,11 @@ export class FirstComponent implements OnInit {
 
   ngOnInit(): void {
     this._valorDinamico = 'Vallor inicial';
+    this.products = this.productService.getProducts();
   }
+
+  constructor(private productService: ProductService) { }
+
 
 
   title = 'Primeiro componente';
@@ -23,6 +29,7 @@ export class FirstComponent implements OnInit {
   isImgVisible: boolean = false;
   price = 55.99;
   codigo = '555-999-55-42';
+  products: any[] = [];
 
 
   private _valorDinamico = '';
