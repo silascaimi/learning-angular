@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 @Component({
   selector: 'first-component',
@@ -7,10 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styles: ['.centralizado {text-align: center;}']
 })
 export class FirstComponent implements OnInit {
+  @Input() pageTitle: string = '';
 
   ngOnInit(): void {
     this._valorDinamico = 'Vallor inicial';
   }
+
 
   title = 'Primeiro componente';
   elements = ['Primeiro', 'Segundo', 'Terceiro'];
@@ -19,6 +21,7 @@ export class FirstComponent implements OnInit {
   isImgVisible: boolean = false;
   price = 55.99;
   codigo = '555-999-55-42';
+
 
   private _valorDinamico = '';
   get valorDinamico(): string {
