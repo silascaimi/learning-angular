@@ -6,4 +6,5 @@ import { Component } from "@angular/core";
 })
 export class FirstComponent {
   title = 'Primeiro componente';
+  elements = ['Primeiro', 'Segundo', 'Terceiro'];
 }
