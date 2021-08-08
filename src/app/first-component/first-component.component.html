@@ -16,3 +16,28 @@
   Título da página pai:{{pageTitle}}
 </h3>
 <button type="button" (click)='onClick()'>Emitir Evento</button>
+<br />
+<div>
+  <table>
+    <tr>
+      <th>Id</th>
+      <th>Nome</th>
+      <th>Código</th>
+      <th>Data</th>
+      <th>Descrição</th>
+      <th>Preço</th>
+      <th>Rating</th>
+      <th>Imagem</th>
+    </tr>
+    <tr *ngFor='let product of products'>
+      <td>{{product.productId}}</td>
+      <td>{{product.productName}}</td>
+      <td>{{product.productCode}}</td>
+      <td>{{product.releaseDate}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.starRating}}</td>
+      <td>{{product.imageUrl}}</td>
+    </tr>
+  </table>
+</div>

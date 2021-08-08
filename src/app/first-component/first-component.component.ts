@@ -1,5 +1,6 @@
 import { EventEmitter } from "@angular/core";
 import { Component, Input, OnInit, Output } from "@angular/core";
+import { IProduct } from "../interfaces/products";
 import { ProductService } from "../services/product.service";
 
 @Component({
@@ -15,7 +16,13 @@ export class FirstComponent implements OnInit {
 
   ngOnInit(): void {
     this._valorDinamico = 'Vallor inicial';
-    this.products = this.productService.getProducts();
+    this.productService.getProducts().subscribe({
+      next: products => {
+        this.products = products;
+        this.productsFiltered = products;
+      },
+      error: err => this.errorMessage = err
+    });
   }
 
   constructor(private productService: ProductService) { }
@@ -29,8 +36,10 @@ export class FirstComponent implements OnInit {
   isImgVisible: boolean = false;
   price = 55.99;
   codigo = '555-999-55-42';
-  products: any[] = [];
 
+  products: IProduct[] = [];
+  productsFiltered: IProduct[] = [];
+  errorMessage: string = '';
 
   private _valorDinamico = '';
   get valorDinamico(): string {
