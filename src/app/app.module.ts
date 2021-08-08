@@ -6,12 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FirstComponent } from './first-component/first-component.component';
 import { ConvertToSpacesPipe } from './resources/convert-to-spaces';
+import { SecondComponentComponent } from './second-page/second-component/second-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FirstComponent,
-    ConvertToSpacesPipe
+    ConvertToSpacesPipe,
+    SecondComponentComponent
   ],
   imports: [
     BrowserModule,
