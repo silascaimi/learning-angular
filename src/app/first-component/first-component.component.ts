@@ -1,5 +1,6 @@
-import { EventEmitter } from "@angular/core";
+import { EventEmitter, OnDestroy } from "@angular/core";
 import { Component, Input, OnInit, Output } from "@angular/core";
+import { Subscription } from "rxjs";
 import { IProduct } from "../interfaces/products";
 import { ProductService } from "../services/product.service";
 
@@ -10,13 +11,13 @@ import { ProductService } from "../services/product.service";
   styles: ['.centralizado {text-align: center;}'],
   providers: [ProductService]
 })
-export class FirstComponent implements OnInit {
+export class FirstComponent implements OnInit, OnDestroy {
   @Input() pageTitle: string = '';
   @Output() notify: EventEmitter<string> = new EventEmitter<string>();
 
   ngOnInit(): void {
     this._valorDinamico = 'Vallor inicial';
-    this.productService.getProducts().subscribe({
+    this.sub = this.productService.getProducts().subscribe({
       next: products => {
         this.products = products;
         this.productsFiltered = products;
@@ -25,9 +26,10 @@ export class FirstComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
   constructor(private productService: ProductService) { }
-
-
 
   title = 'Primeiro componente';
   elements = ['Primeiro', 'Segundo', 'Terceiro'];
@@ -40,6 +42,7 @@ export class FirstComponent implements OnInit {
   products: IProduct[] = [];
   productsFiltered: IProduct[] = [];
   errorMessage: string = '';
+  sub!: Subscription;
 
   private _valorDinamico = '';
   get valorDinamico(): string {
