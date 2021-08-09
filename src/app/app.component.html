@@ -1,1 +1,6 @@
-<first-component [pageTitle]='title' (notify)='onNotify($event)'></first-component>
+<ul>
+  <li><a [routerLink]="['/first-component']">Primeiro Componente</a></li>
+  <li><a [routerLink]="['/second-component']">Segundo Componente</a></li>
+</ul>
+<router-outlet></router-outlet>
+<!-- <first-component [pageTitle]='title' (notify)='onNotify($event)'></first-component> -->
