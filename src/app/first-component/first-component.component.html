@@ -28,6 +28,7 @@
       <th>Preço</th>
       <th>Rating</th>
       <th>Imagem</th>
+      <th>Link</th>
     </tr>
     <tr *ngFor='let product of products'>
       <td>{{product.productId}}</td>
@@ -38,6 +39,8 @@
       <td>{{product.price}}</td>
       <td>{{product.starRating}}</td>
       <td>{{product.imageUrl}}</td>
+      <td><a [routerLink]="['/first-component', product.productId]">Link</a></td>
     </tr>
   </table>
+  
 </div>
